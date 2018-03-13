@@ -58,7 +58,9 @@ feature 'logging out' do
     fill_in "Username", with: "Bobbert"
     fill_in "Password", with: "password"
     click_on "Sign In"
-    expect(page).to have_content("Log Out")
+    visit goals_url
+    # save_and_open_page
+    expect(page).to have_button("Log Out")
   end
 
   scenario 'should have username at top if logged in' do
